@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Load page content
-    var page = window.location.hash.substr(1);
+    let page = window.location.hash.substr(1);
     if (page == '') page = 'home';
     loadPage(page);
 
