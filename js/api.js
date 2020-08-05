@@ -56,7 +56,6 @@ function getAllTeams() {
 
 }
 
-
 function showTeams(data) {
     let teams = "";
     let teamsElement = document.getElementById("laligaTeams");
