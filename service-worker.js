@@ -88,12 +88,6 @@ if (workbox) {
         ignoreUrlParametersMatching: [/.*/]
     });
 
-    // Routing workbox untuk menyimpan cache images
-    workbox.routing.registerRoute(
-        /\.(?:png|gif|jpg|jpeg|svg)$/,
-        workbox.strategies.cacheFirst()
-    );
-
     // Routing workbox untuk menyimpan cache dari data api.football-data.org
     workbox.routing.registerRoute(
         new RegExp("https://api.football-data.org/v2/"),
@@ -114,16 +108,7 @@ if (workbox) {
     workbox.routing.registerRoute(
         /.*(?:googleapis|gstatic)\.com/,
         workbox.strategies.staleWhileRevalidate({
-            cacheName: "google-fonts-stylesheets",
-            plugins: [
-                new workbox.cacheableResponse.Plugin({
-                    statuses: [0, 200],
-                }),
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 60 * 24 * 365,
-                    maxEntries: 30,
-                }),
-            ],
+            cacheName: "google-fonts-stylesheets"
         })
     );
 

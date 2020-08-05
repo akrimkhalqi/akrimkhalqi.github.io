@@ -252,7 +252,7 @@ function showFavorite(data) {
             <div class="col s12 m6 l4">
                 <div class="card">
                     <div class="card-content center waves-effect waves-block waves-light">
-                        <img class="activator responsive-img" src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}" height="200px" weight="200px">
+                        <img class="activator" src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}" height="100px" weight="100px">
                     </div>
                     <div class="card-content">
                         <span class = "card-title activator grey-text text-darken-4"> ${team.name}
