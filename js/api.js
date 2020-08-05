@@ -72,7 +72,7 @@ function showTeams(data) {
                     <a href="${team.website}" target="_blank">Official Website ${team.name}</a>
                 </td>
                 <td>
-                    <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})" id="btnSave"><i class="material-icons">favorite</i></a>
+                    <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})" id="btnSave" style"display: block;"><i class="material-icons">favorite</i></a>
                     <a class="waves-effect waves-light btn-small materialize-red" onclick="deleteFavorite(${team.id})" id="btnDelete" style="display: none;"><i class="material-icons">favorite</i></a>
                 </td>
             </tr>
