@@ -51,7 +51,6 @@ function getAllTeams() {
         .then(data => {
             teamData = data;
             showTeams(data);
-            buttonAction();
         })
         .catch(error);
 
@@ -75,7 +74,7 @@ function showTeams(data) {
                 </td>
                 <td>
                     <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})" id="btnSave"><i class="material-icons">favorite</i></a>
-                    <a class="waves-effect waves-light btn-small materialize-red" onclick="deleteFavorite(${team.id})" id="btnDelete"><i class="material-icons">favorite</i></a>
+                    <a class="waves-effect waves-light btn-small materialize-red" onclick="deleteFavorite(${team.id})" id="btnDelete" style="display: none;"><i class="material-icons">favorite</i></a>
                 </td>
             </tr>
         `;
