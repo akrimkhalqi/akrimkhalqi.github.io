@@ -72,8 +72,8 @@ function showTeams(data) {
                     <a href="${team.website}" target="_blank">Official Website ${team.name}</a>
                 </td>
                 <td>
-                    <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})" id="btnSave" style"display: block;"><i class="material-icons">favorite</i></a>
-                    <a class="waves-effect waves-light btn-small materialize-red" onclick="deleteFavorite(${team.id})" id="btnDelete" style="display: none;"><i class="material-icons">favorite</i></a>
+                    <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})" id="btnSave"><i class="material-icons">favorite</i></a>
+                    <a class="waves-effect waves-light btn-small materialize-red disabled" onclick="deleteFavorite(${team.id})" id="btnDelete"><i class="material-icons">favorite</i></a>
                 </td>
             </tr>
         `;
@@ -288,8 +288,7 @@ function saveFavorite(teamId) {
     let btnSave = document.getElementById("btnSave");
     let btnDelete = document.getElementById("btnDelete");
     dbInsertTeam(team).then(() => {
-        btnSave.style.diplay = "none";
-        btnDelete.style.display = "block";
+        btnSave.setAttribute("class", "disabled");
         M.toast({
             html: `${team.name} Team has been added to Favorites!`
         });
