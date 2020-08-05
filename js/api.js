@@ -72,8 +72,7 @@ function showTeams(data) {
                     <a href="${team.website}" target="_blank">Official Website ${team.name}</a>
                 </td>
                 <td>
-                    <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})" id="btnSave"><i class="material-icons">favorite</i></a>
-                    <a class="waves-effect waves-light btn-small materialize-red disabled" onclick="deleteFavorite(${team.id})" id="btnDelete"><i class="material-icons">favorite</i></a>
+                    <a class="waves-effect waves-light btn-small materialize-red" onclick="saveFavorite(${team.id})"><i class="material-icons">favorite</i></a>
                 </td>
             </tr>
         `;
@@ -277,7 +276,7 @@ function showFavorite(data) {
             </div>
         `;
     });
-    if (data.length == 0) {
+    if (data.length != 0) {
         favorite += `<div class="card-panel materialize-red darken-4"><h6 class="center-align white-text">No Favorite Team Found!</6></div>`;
     }
     document.getElementById("laligaFavorite").innerHTML = favorite;
@@ -285,10 +284,7 @@ function showFavorite(data) {
 
 function saveFavorite(teamId) {
     const team = teamData.teams.filter(data => data.id == teamId)[0];
-    let btnSave = document.getElementById("btnSave");
-    let btnDelete = document.getElementById("btnDelete");
     dbInsertTeam(team).then(() => {
-        btnSave.setAttribute("class", "disabled");
         M.toast({
             html: `${team.name} Team has been added to Favorites!`
         });
