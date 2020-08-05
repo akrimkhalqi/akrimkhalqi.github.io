@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadNav() {
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if (this.status !== 200) return;
+            if (this.readyState == 4) {
+                if (this.status != 200) return;
 
                 // Muat daftar tautan menu
                 document.querySelectorAll(".topnav, .sidenav").forEach(function (elm) {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         M.Sidenav.getInstance(sidenav).close();
 
                         // Muat konten halaman yang dipanggil
-                        let page = event.target.getAttribute("href").substr(1);
+                        page = event.target.getAttribute("href").substr(1);
                         loadPage(page);
                     });
                 });
@@ -34,16 +34,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Load page content
-    let page = window.location.hash.substr(1);
-    if (page === '') page = 'home';
+    var page = window.location.hash.substr(1);
+    if (page == '') page = 'home';
     loadPage(page);
 
     function loadPage(page) {
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-            if (this.readyState === 4) {
+            if (this.readyState == 4) {
                 const content = document.querySelector("#body-content");
-                if (this.status === 200) {
+                if (this.status == 200) {
                     content.innerHTML = xhttp.responseText;
                     if (page === "home") {
                         getAllTeams();
