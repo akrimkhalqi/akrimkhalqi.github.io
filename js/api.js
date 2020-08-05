@@ -247,16 +247,17 @@ function showFavorite(data) {
     let favorite = "";
     data.forEach(team => {
         favorite += `
-            <div class="col s6 m6 l4">
+        <div class="row">
+            <div class="col s12 m6 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}" width="100px">
+                        <img class="activator" src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}">
                     </div>
                     <div class="card-content">
                         <span class = "card-title activator grey-text text-darken-4"> ${team.name}
                             <i class="material-icons right">more_vert</i>
                         </span>
-                        <h5>Delete From Favorite
+                        <h5>Delete
                             <a class="btn-floating waves-effect waves-light red right" onclick = "deleteFavorite(${team.id})">
                                 <i class="material-icons right">delete</i>
                             </a>
@@ -274,6 +275,7 @@ function showFavorite(data) {
                     </div>
                 </div>
             </div>
+        </div>
         `;
     });
     if (data.length == 0) {
