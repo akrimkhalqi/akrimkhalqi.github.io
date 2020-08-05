@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadNav() {
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                if (this.status != 200) return;
+            if (this.readyState === 4) {
+                if (this.status !== 200) return;
 
                 // Muat daftar tautan menu
                 document.querySelectorAll(".topnav, .sidenav").forEach(function (elm) {
