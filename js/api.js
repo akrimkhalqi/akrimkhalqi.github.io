@@ -279,9 +279,7 @@ function showFavorite(data) {
     });
 
     favoriteElement.innerHTML = `
-        <div class="row">
-            ${favorite}
-        </div>
+        ${favorite}
     `;
 
     if (data.length == 0) {
