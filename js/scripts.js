@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadPage(page) {
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
+            if (this.readyState === 4) {
                 const content = document.querySelector("#body-content");
-                if (this.status == 200) {
+                if (this.status === 200) {
                     content.innerHTML = xhttp.responseText;
                     if (page === "home") {
                         getAllTeams();
