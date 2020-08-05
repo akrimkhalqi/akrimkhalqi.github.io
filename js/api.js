@@ -247,10 +247,10 @@ function showFavorite(data) {
     let favorite = "";
     data.forEach(team => {
         favorite += `
-            <div class="col s12">
+            <div class="col s6 m6 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}">
+                        <img class="activator" src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}" style="width: 100px;">
                     </div>
                     <div class="card-content">
                         <span class = "card-title activator grey-text text-darken-4"> ${team.name}
@@ -276,7 +276,7 @@ function showFavorite(data) {
             </div>
         `;
     });
-    if (data.length != 0) {
+    if (data.length == 0) {
         favorite += `<div class="card-panel materialize-red darken-4"><h6 class="center-align white-text">No Favorite Team Found!</6></div>`;
     }
     document.getElementById("laligaFavorite").innerHTML = favorite;
