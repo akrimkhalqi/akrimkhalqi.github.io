@@ -114,7 +114,16 @@ if (workbox) {
     workbox.routing.registerRoute(
         /.*(?:googleapis|gstatic)\.com/,
         workbox.strategies.staleWhileRevalidate({
-            cacheName: "google-fonts-stylesheets"
+            cacheName: "google-fonts-stylesheets",
+            plugins: [
+                new workbox.cacheableResponse.Plugin({
+                    statuses: [0, 200],
+                }),
+                new workbox.expiration.Plugin({
+                    maxAgeSeconds: 60 * 60 * 24 * 365,
+                    maxEntries: 30,
+                }),
+            ],
         })
     );
 
